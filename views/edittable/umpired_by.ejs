@@ -1,0 +1,29 @@
+<%- include("../partials/editheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>match_id</th>
+        <th>umpire_id</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){%>
+        <form action="/<%=tablename%>/umpire_id/<%= pos?.umpire_id %>/save/getdetails" method="post">
+        <tr>
+            <td> <input  class="form-control" type="text" name="match_id" autocomplete="off" value="<%= pos?.match_id%>"></td>
+            <td> <input  class="form-control" type="text" name="umpire_id" autocomplete="off" value="<%= pos?.umpire_id%>"></td>
+            <td><button type="submit"class="btn btn-light">Add data</button></td>
+        </tr>
+    </form>
+  <%  })  %>
+ <% }) %>
+<%- include("../partials/editfooter"); -%>

@@ -1,0 +1,31 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>MOV_ID</th>
+        <th>REV_STARS</th>
+        <th>ACTION</th>
+    </tr>
+</thead>
+<tbody>
+
+
+    <%  posts.forEach(function(post){ %>
+        <%  post.forEach(function(pos){ %>
+            <form action="/<%= tablename %>/MOV_ID/<%= pos?.MOV_ID %>/save/getdetails" method="post">
+        <tr>
+    
+            <td> <input  class="form-control" type="text" name="MOV_ID" autocomplete="off" value="<%= pos?.MOV_ID%>"></td>
+            <td> <input  class="form-control" type="text" name="REV_STARS" autocomplete="off" value="<%= pos?.REV_STARS%>"></td>
+            <td><button type="submit"class="btn btn-light">Submit</button></td>
+        </tr>
+    </form>
+  <%  });  %>
+ <% }); %>
+<%- include("../partials/footer"); -%>

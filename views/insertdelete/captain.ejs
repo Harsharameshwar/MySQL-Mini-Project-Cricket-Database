@@ -1,0 +1,56 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>captain_id</th>
+        <th>captain_name</th>
+        <th>team_id</th>
+        <th>player_id</th>
+        <th>year_of_captaincy</th>
+        <th>no_of_wins</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.captain_id%></td>
+            <td><%= pos?.captain_name%></td>
+            <td><%= pos?.team_id%></td>
+            <td><%= pos?.player_id%></td>
+            <td><%= pos?.year_of_captaincy%></td>
+            <td><%= pos?.no_of_wins%></td>
+            <td><a href="delete/<%=tablename%>/captain_id/<%= pos?.captain_id %>" class="btn btn-danger">Delete</a></td>
+        </tr>
+  <%  })  %>
+ <% }) %>
+
+ <form action="/<%=tablename%>/getdetails" method="post">
+     
+    <tr>
+        <td> <input  class="form-control" type="text" name="captain_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="captain_name" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="team_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="player_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="year_of_captaincy" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_wins" autocomplete="off"></td>
+        <td><button type="submit"class="btn btn-light">Add data</button></td>
+    </tr>
+<%- include("../partials/footer"); -%>
+
+<!-- captain_id varchar(30) PK 
+captain_name varchar(30) 
+team_id varchar(30) 
+player_id varchar(30) 
+year_of_captaincy decimal(2,0) 
+no_of_wins -->

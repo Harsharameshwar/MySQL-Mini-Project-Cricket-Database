@@ -1,0 +1,43 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>coach_id</th>
+        <th>team_id</th>
+        <th>coach_name</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.coach_id%></td>
+            <td><%= pos?.team_id%></td>
+            <td><%= pos?.coach_name%></td>
+            <td><a href="delete/<%=tablename%>/coach_id/<%= pos?.coach_id %>" class="btn btn-danger">Delete</a></td>
+        </tr>
+  <%  })  %>
+ <% }) %>
+ <form action="/<%=tablename%>/getdetails" method="post">
+     
+    <tr>
+        <td> <input  class="form-control" type="text" name="coach_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="team_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="coach_name" autocomplete="off"></td>
+        <td><button type="submit"class="btn btn-light">Add data</button></td>
+    </tr>
+<%- include("../partials/footer"); -%>
+<!-- 
+coach_id varchar(30) PK 
+team_id varchar(30) 
+coach_name -->

@@ -1,0 +1,43 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+    
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>ACT_ID</th>
+        <th>ACT_NAME</th>
+        <th>ACT_GENDER</th>
+        <th>ACTION</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.ACT_ID%></td>
+            <td><%= pos?.ACT_NAME%></td>
+            <td><%= pos?.ACT_GENDER%></td>
+            <td><a href="delete/<%=tablename%>/ACT_ID/<%= pos?.ACT_ID %>" class="btn btn-danger">Delete</a></td>
+            
+        </tr>
+  <%  })  %>
+ <% }) %>
+ 
+    <form action="/<%=tablename%>/getdetails" method="post">
+     
+        <tr>
+            <td> <input  class="form-control" type="text" name="ACT_ID" autocomplete="off"></td>
+            <td> <input  class="form-control" type="text" name="ACT_NAME" autocomplete="off"></td>
+            <td> <input  class="form-control" type="text" name="ACT_GENDER" autocomplete="off"></td>
+            <td><button type="submit"class="btn btn-light">Add data</button></td>
+        </tr>
+    
+<%- include("../partials/footer"); -%>

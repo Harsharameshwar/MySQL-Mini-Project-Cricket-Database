@@ -1,0 +1,40 @@
+<%- include("../partials/editheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>umpire_id</th>
+        <th>umpire_name </th>
+        <th>no_of_matches</th>
+        <th>country</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+        <form action="/<%=tablename%>/umpire_id/<%= pos?.umpire_id %>/save/getdetails" method="post">
+        <tr>
+            <td> <input  class="form-control" type="text" name="umpire_id" autocomplete="off" value="<%= pos?.umpire_id%>"></td>
+            <td> <input  class="form-control" type="text" name="umpire_name" autocomplete="off" value="<%= pos?.umpire_name%>"></td>
+            <td> <input  class="form-control" type="text" name="no_of_matches" autocomplete="off" value="<%= pos?.no_of_matches%>"></td>
+            <td> <input  class="form-control" type="text" name="country" autocomplete="off" value="<%= pos?.country%>"></td>
+            <td><button type="submit"class="btn btn-light">Add data</button></td>
+        </tr>
+    </form>
+
+  <%  })  %>
+ <% }) %>
+
+<%- include("../partials/editfooter"); -%>
+
+<!-- umpire_id varchar(30) PK 
+umpire_name varchar(30) 
+no_of_matches decimal(4,0) 
+country -->

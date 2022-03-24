@@ -1,0 +1,66 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>team_id</th>
+        <th>team_rank</th>
+        <th>team_name</th>
+        <th>country_name</th>
+        <th>no_of_wins</th>
+        <th>no_of_loses</th>
+        <th>no_of_draws</th>
+        <th>no_of_bowlers</th>
+        <th>no_of_batsmans</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+            <td><%= pos?.team_id%></td>
+            <td><%= pos?.team_rank%></td>
+            <td><%= pos?.team_name%></td>
+            <td><%= pos?.country_name%></td>
+            <td><%= pos?.no_of_wins%></td>
+            <td><%= pos?.no_of_loses%></td>
+            <td><%= pos?.no_of_draws%></td>
+            <td><%= pos?.no_of_bowlers%></td>
+            <td><%= pos?.no_of_batsmans%></td>
+            <td><a href="delete/<%=tablename%>/team_id/<%= pos?.team_id %>" class="btn btn-danger">Delete</a></td>
+        </tr>
+  <%  }) %>
+ <% }) %>
+ <form action="/<%=tablename%>/getdetails" method="post">
+     
+    <tr>
+        <td> <input  class="form-control" type="text" name="team_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="team_rank" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="team_name" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="country_name" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_wins" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_loses" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_draws" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_bowlers" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_batsmans" autocomplete="off"></td>
+        <td><button type="submit"class="btn btn-light">Add data</button></td>
+    </tr>
+<%- include("../partials/footer"); -%>
+
+<!-- team_id varchar(30) PK 
+team_rank decimal(3,0) 
+team_name varchar(20) 
+country_name varchar(20) 
+no_of_wins decimal(3,0) 
+no_of_loses decimal(3,0) 
+no_of_draws decimal(3,0) 
+no_of_bowlers decimal(2,0) 
+no_of_batsman -->

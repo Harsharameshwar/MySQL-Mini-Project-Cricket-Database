@@ -1,0 +1,22 @@
+<%- include("../partials/tableheader"); -%>
+  <h1>Table <%= tablename %> </h1>
+  <table class="styled-table" border="2">
+    <tr>
+        <th>DIR_ID</th>
+        <th>DIR_NAME</th>
+        <th>DIR_PHONE</th>
+    </tr>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  for(let i=0;i<4;i++){ %>
+
+        <tr>
+    
+            <td><%= post[i]?.DIR_ID%></td>
+            <td><%= post[i]?.DIR_NAME%></td>
+            <td><%= post[i]?.DIR_PHONE%></td>
+        </tr>
+  <%  }  %>
+ <% }) %>
+</table>
+<%- include("../partials/tablefooter"); -%>

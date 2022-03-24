@@ -1,0 +1,28 @@
+<%- include("../partials/tableheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>MOV_ID</th>
+        <th>REV_STARS</th>
+    </tr>
+</thead>
+<tbody>
+
+
+    <%  posts.forEach(function(post){ %>
+        <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.MOV_ID%></td>
+            <td><%= pos?.REV_STARS%></td>
+        </tr>
+  <%  });  %>
+ <% }); %>
+<%- include("../partials/tablefooter"); -%>

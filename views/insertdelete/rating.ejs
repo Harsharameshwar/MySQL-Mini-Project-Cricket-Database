@@ -1,0 +1,37 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>MOV_ID</th>
+        <th>REV_STARS</th>
+        <th>ACTION</th>
+    </tr>
+</thead>
+<tbody>
+
+
+    <%  posts.forEach(function(post){ %>
+        <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.MOV_ID%></td>
+            <td><%= pos?.REV_STARS%></td>
+            <td><a href="delete/<%=tablename%>/MOV_ID/<%= pos?.MOV_ID %>" class="btn btn-danger">Delete</a></td>
+        </tr>
+  <%  });  %>
+ <% }); %>
+        <form action="/<%=tablename%>/getdetails" method="post">
+     
+            <tr>
+                <td> <input  class="form-control" type="text" name="MOV_ID" autocomplete="off"></td>
+                <td> <input  class="form-control" type="text" name="REV_STARS" autocomplete="off"></td>
+                <td><button type="submit"class="btn btn-light">Add data</button></td>
+            </tr>
+<%- include("../partials/footer"); -%>

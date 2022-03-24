@@ -1,0 +1,33 @@
+<%- include("../partials/tableheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>coach_id</th>
+        <th>team_id</th>
+        <th>coach_name</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.coach_id%></td>
+            <td><%= pos?.team_id%></td>
+            <td><%= pos?.coach_name%></td>
+        </tr>
+  <%  })  %>
+ <% }) %>
+<%- include("../partials/tablefooter"); -%>
+<!-- 
+coach_id varchar(30) PK 
+team_id varchar(30) 
+coach_name -->

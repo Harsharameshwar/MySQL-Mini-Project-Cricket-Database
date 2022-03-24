@@ -1,0 +1,36 @@
+<%- include("../partials/tableheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>umpire_id</th>
+        <th>umpire_name </th>
+        <th>no_of_matches</th>
+        <th>country</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+            <td><%= pos?.umpire_id%></td>
+            <td><%= pos?.umpire_name%></td>
+            <td><%= pos?.no_of_matches%></td>
+            <td><%= pos?.country%></td>
+        </tr>
+
+  <%  })  %>
+ <% }) %>
+<%- include("../partials/tablefooter"); -%>
+
+<!-- umpire_id varchar(30) PK 
+umpire_name varchar(30) 
+no_of_matches decimal(4,0) 
+country -->

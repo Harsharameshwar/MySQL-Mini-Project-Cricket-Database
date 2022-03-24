@@ -1,0 +1,88 @@
+<%- include("../partials/header"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>player_id</th>
+        <th>team_id</th>
+        <th>no_of_matches</th>
+        <th>no_of_t20</th>
+        <th>no_of_odi</th>
+        <th>no_of_test</th>
+        <th>no_of_wickets </th>
+        <th>type_of_bowler</th>
+        <th>economy</th>
+        <th>action</th>
+
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+
+        <tr>
+    
+            <td><%= pos?.player_id%></td>
+            <td><%= pos?.team_id%></td>
+            <td><%= pos?.no_of_matches%></td>
+            <td><%= pos?.no_of_t20%></td>
+            <td><%= pos?.no_of_odi%></td>
+            <td><%= pos?.no_of_test%></td>
+            <td><%= pos?.no_of_wickets %></td>
+            <td><%= pos?.type_of_bowler%></td>
+            <td><%= pos?.economy%></td>         
+            <td><a href="delete/<%=tablename%>/player_id/<%= pos?.player_id %>" class="btn btn-danger">Delete</a></td> 
+
+        </tr>
+  <%  })  %>
+ <% }) %>
+
+ <form action="/<%=tablename%>/getdetails" method="post">
+     
+    <tr>
+        <td> <input  class="form-control" type="text" name="player_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="team_id" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_matches" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_t20" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_odi" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_test" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="no_of_wickets" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="type_of_bowler" autocomplete="off"></td>
+        <td> <input  class="form-control" type="text" name="economy" autocomplete="off"></td>
+        <td><button type="submit"class="btn btn-light">Add data</button></td>
+    </tr>
+ 
+<%- include("../partials/footer"); -%>
+
+<!-- match_id varchar(30) PK 
+match_date date 
+match_time time 
+team_1_name varchar(30) 
+team_2_name varchar(30) 
+loser varchar(30) 
+winner varchar(30) 
+stadium varchar(30) 
+umpire_id -->
+
+
+
+player_id varchar(30) PK 
+team_id varchar(30) 
+no_of_worldcups decimal(2,0) 
+numeric_of_matches decimal(3,0) 
+batting_average float 
+no_of_sixes decimal(3,0) 
+no_of_fours decimal(3,0) 
+no_of_totalruns decimal(4,0) 
+no_of_t20 decimal(3,0) 
+no_of_odi decimal(3,0) 
+no_of_test decimal(3,0) 
+no_of_wickets decimal(2,0) 
+type_of_bowler varchar(30) 
+economy

@@ -1,0 +1,58 @@
+<%- include("../partials/editheader"); -%>
+<h2 class="heading-section">Table <%= tablename %> </h2>
+</div>
+</div>
+<div class="row">
+<div class="col-md-12">
+<div class="table-wrap">
+<table class="table table-striped">
+<thead>
+    <tr>
+        <th>match_id</th>
+        <th>match_date</th>
+        <th>match_time</th>
+        <th>team_1_name</th>
+        <th>team_2_name</th>
+        <th>loser</th>
+        <th>winner</th>
+        <th>stadium</th>
+        <th>umpire_id</th>
+        <th>action</th>
+    </tr>
+</thead>
+<tbody>
+    
+    <%  posts.forEach(function(post){ %>
+    <%  post.forEach(function(pos){ %>
+        <form action="/<%= tablename %>/match_id/<%= pos?.match_id%>/save/getdetails" method="post">
+        <tr>
+            <td> <input  class="form-control" type="text" name="match_id" autocomplete="off" value="<%= pos?.match_id%>"></td>
+            <td> <input  class="form-control" type="text" name="match_date" autocomplete="off" value="<%= pos?.match_date%>"></td>
+            <td> <input  class="form-control" type="text" name="match_time" autocomplete="off" value="<%= pos?.match_time%>"></td>
+            <td> <input  class="form-control" type="text" name="team_1_name" autocomplete="off" value="<%= pos?.team_1_name%>"></td>
+            <td> <input  class="form-control" type="text" name="team_2_name" autocomplete="off" value="<%= pos?.team_2_name%>"></td>
+            <td> <input  class="form-control" type="text" name="loser" autocomplete="off" value="<%= pos?.loser%>"></td>
+            <td> <input  class="form-control" type="text" name="winner" autocomplete="off" value="<%= pos?.winner%>"></td>
+            <td> <input  class="form-control" type="text" name="stadium" autocomplete="off" value="<%= pos?.stadium%>"></td>
+            <td> <input  class="form-control" type="text" name="umpire_id" autocomplete="off" value="<%= pos?.umpire_id%>"></td>
+            <td><button type="submit"class="btn btn-light">Submit</button></td>
+        </tr>
+    </form>
+  <%  })  %>
+ <% }) %>
+ <form action="/<%=tablename%>/getdetails" method="post">
+     
+    <tr>
+
+    </tr>
+<%- include("../partials/editfooter"); -%>
+
+<!-- match_id varchar(30) PK 
+match_date date 
+match_time time 
+team_1_name varchar(30) 
+team_2_name varchar(30) 
+loser varchar(30) 
+winner varchar(30) 
+stadium varchar(30) 
+umpire_id -->
