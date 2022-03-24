@@ -10,4 +10,4 @@
 
 - MySQL Database must be maintained
 
-- For more details on MySQL Database refer the report
+- For more details on MySQL Database refer the report in Files directory
